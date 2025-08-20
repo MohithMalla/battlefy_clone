@@ -17,7 +17,7 @@ export default function DragDropShowcase() {
           <div className="w-full flex justify-center sm:justify-start " >
             <div className="relative w-60 sm:w-84 h-48 sm:h-64 flex items-center justify-center">
               <div className="absolute inset-0 border border-dashed border-lime-400">
-                {["top-0 left-0", "top-0 left-83.5", "bottom-0 left-83.5 top-63.5", "bottom-0 left-0 top-63.5"].map(
+                {["top-0 left-0", "top-0 right-0", "bottom-0 left-0", "bottom-0 right-0"].map(
                   (pos, i) => (
                     <span
                       key={i}
