@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -5,15 +6,12 @@ export default function DragDropShowcase() {
   const text =
     "Stage scenes digitally with drag & drop props. Bring it to life with AI.";
   const words = text.split(" ");
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);        
 
   return (
     <>
-      {/* Section 1 */}
-      <section className="w-full min-h-screen bg-[#181414] text-white flex items-center justify-center px-6 sm:px-8 py-16 sm:py-20  ">
+          <section className="w-full min-h-screen bg-[#161616] text-white flex items-center justify-center px-6 sm:px-8 py-16 sm:py-20  ">
         <div className="max-w-7xl w-full flex flex-col items-center gap-16 sm:gap-24 relative  ">
-
-          {/* Flower Box */}
           <div className="w-full flex justify-center sm:justify-start " >
             <div className="relative w-60 sm:w-84 h-48 sm:h-64 flex items-center justify-center">
               <div className="absolute inset-0 border border-dashed border-lime-400">
@@ -28,7 +26,7 @@ export default function DragDropShowcase() {
                 )}
               </div>
               <motion.img
-                src="/image-removebg-preview (1).png"
+                src="/image-removebg-preview (1).png"   
                 alt="Green flower icon"
                 initial={{ opacity: 0, x: -60, rotate: -10 }}
                 animate={{ opacity: 1, x: 0, rotate: -10 }}
@@ -37,8 +35,6 @@ export default function DragDropShowcase() {
               />
             </div>
           </div>
-
-          {/* Text */}
           <motion.h2
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-center sm:text-start max-w-3xl mt-[-100px]   sm:ml-0"
             initial="hidden"
@@ -61,13 +57,11 @@ export default function DragDropShowcase() {
               </motion.span>
             ))}
           </motion.h2>
-
-          {/* Product Box */}
           <div className="w-full flex justify-center sm:justify-end mt-[-100px]  sm:ml-0 ">
             <div
-              className="relative w-64 sm:w-80 md:w-90 h-64 sm:h-80 md:h-90 flex items-center justify-center"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
+              className="relative w-64 sm:w-80 md:w-90 h-64 sm:h-80 md:h-90 flex items-center justify-center"   
+              onMouseEnter={() => setHovered(true)}     
+              onMouseLeave={() => setHovered(false)}    
             >
               {hovered && (
                 <div className="absolute inset-0 border border-dashed border-lime-400">
@@ -85,42 +79,38 @@ export default function DragDropShowcase() {
               <motion.img
                 src={hovered ? "/before-hover-img-removebg-preview.png" : "before-hover-img.png"}
                 alt="Product scene"
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: 100 }}        
                 animate={{
                   opacity: 1,
                   x: 0,
                   scale: hovered ? 0.95 : 1,
                 }}
                 transition={{ duration: 0.5 }}
-                className="object-cover w-full h-full rounded-xl transition-all duration-500"
+                className="object-cover w-full h-full rounded-xl transition-all duration-500 rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2 */}
       <section className="bg-[#181414] text-white py-16 sm:py-20">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-12 px-4 sm:px-8">
-          
-          {/* Video */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-12 px-4 sm:px-8">   
           <video
             src="https://video.flair.ai/flair-templates.mp4"
             autoPlay
             loop
             muted
             playsInline
-            className="w-full sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[350px] lg:w-[750px] lg:h-[600px] object-cover rounded-xl shadow-[0_0_60px_rgba(0,0,0,0.4)]"
+            className="w-full sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[350px] lg:w-[750px] lg:h-[600px] object-cover rounded-xl shadow-[0_0_60px_rgba(0,0,0,0.4)]"  
           />
-
-          {/* Text */}
           <div className="max-w-lg px-4 sm:px-6 md:px-12 text-center sm:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
-              Mix & match <br /> product with <br /> templates
+              Mix & match <br /> product with <br /> tem
+plates
             </h2>
 
             <p className="text-white/40 text-lg sm:text-xl md:text-2xl font-light mt-6 md:mt-12">
-              Test design concepts that connect customers with one click. 
+              Test design concepts that connect customers with one click.
               Build templates at scale.
             </p>
 

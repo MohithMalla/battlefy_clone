@@ -38,7 +38,6 @@ export default function FlairSlider() {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Preload videos to avoid buffering
     data[activeTab].forEach(item => {
       if (item.type === "video") {
         const video = document.createElement("video");
@@ -67,8 +66,6 @@ export default function FlairSlider() {
       <h1 className="text-4xl md:text-7xl font-light leading-tight">
         Generate on brand content for all your business needs.
       </h1>
-
-      {/* Tabs */}
       <div className="flex flex-wrap gap-3 mt-8">
         {tabs.map(tab => (
           <button
@@ -89,16 +86,13 @@ export default function FlairSlider() {
 </div>
 
 
-  {/* Slider now full width */}
   <div className="relative w-full mt-12">
-    {/* Left Arrow */}
     <button 
       onClick={() => scroll(-400)}
       className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full z-10 shadow-lg"
     >
       <ChevronLeft className="w-6 h-6" />
     </button>
-
     <div 
   ref={scrollRef}
   className="flex gap-6 overflow-hidden scroll-smooth no-scrollbar px-6"
@@ -131,9 +125,6 @@ export default function FlairSlider() {
     </motion.div>
   ))}
 </div>
-
-
-    {/* Right Arrow */}
     <button 
       onClick={() => scroll(400)}
       className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full z-10 shadow-lg"
