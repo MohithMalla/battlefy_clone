@@ -20,17 +20,14 @@ export default function Hero() {
 
   return (
     <>
-      {/* HERO HEADING */}
       <section className="bg-[#181414] text-white flex flex-col items-center justify-center pt-24 sm:pt-32 px-4 text-center">
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-zinc-300">
           The AI design tool for
           <br />
           <span className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 py-6 sm:py-8">
-            {/* Fixed word */}
             <span className="text-lime-400">product</span>
 
-            {/* Rotating words */}
-            <span className="relative w-[160px] sm:w-[220px] md:w-[280px] lg:w-[320px] h-[50px] sm:h-[70px] md:h-[90px] lg:h-[100px] overflow-hidden">
+            <span className="relative w-[160px] sm:w-[220px] md:w-[280px] lg:w-[320px] h-[50px] sm:h-[70px] md:h-[90px] lg:h-[100px] ">
               {words.map((word, i) => (
                 <span
                   key={i}
@@ -60,16 +57,13 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* HERO IMAGE + VIDEO */}
       <section className="bg-[#181414] w-full relative overflow-hidden">
-        {/* Background Image */}
         <img
           alt="Laptop Hero"
           src="https://flair.ai/cdn-cgi/imagedelivery/i1XPW6iC_chU01_6tBPo8Q/1714a744-46b5-4009-1b22-d39558452000/public"
           className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[850px] object-cover mt-[-20px] sm:mt-[-30px]"
         />
 
-        {/* Overlayed Video */}
         <div className="absolute inset-0 flex justify-center items-center">
           <div className="relative w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[55vw] aspect-video">
   <video

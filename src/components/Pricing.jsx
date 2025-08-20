@@ -23,7 +23,6 @@ export default function FeatureCards() {
           key={idx}
           className="group flex flex-col justify-between border border-white/10 rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 w-full sm:w-[90%] md:w-[500px] lg:w-[560px] bg-transparent hover:border-white/20 transition duration-300"
         >
-          {/* Text Section */}
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 text-white/80 group-hover:text-white transition">
               {feature.title}
@@ -32,8 +31,6 @@ export default function FeatureCards() {
               {feature.description}
             </p>
           </div>
-
-          {/* Image */}
           <img
             src={feature.image}
             alt={feature.title}
