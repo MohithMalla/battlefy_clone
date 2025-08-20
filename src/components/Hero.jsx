@@ -27,7 +27,7 @@ export default function Hero() {
           <span className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 py-6 sm:py-8">
             <span className="text-lime-400">product</span>
 
-            <span className="relative w-[160px] sm:w-[220px] md:w-[280px] lg:w-[320px] h-[50px] sm:h-[70px] md:h-[90px] lg:h-[100px] ">
+            <span className="relative w-[190px] sm:w-[280px] md:w-[380px] lg:w-[500px] h-[90px] sm:h-[70px] md:h-[90px] lg:h-[110px] overflow-hidden">
               {words.map((word, i) => (
                 <span
                   key={i}
