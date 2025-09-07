@@ -14,7 +14,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-b from-[#73252C] via-[#321E21] to-[#1c1c1c] text-white">
-      {/* Partner Logos Section */}
       <div className="max-w-7xl mx-auto px-4 py-12 text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase">
           Some other major players we’ve worked with
@@ -33,16 +32,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Footer Links Section */}
       <div className="bg-gradient-to-b from-[#73252C] via-[#321E21] to-[#1c1c1c] text-white">
-  {/* Partner Logos (Optional, keep or remove as needed) */}
 
-  {/* Main Footer Section */}
   <div className="bg-[#252329] py-10 text-sm text-gray-400">
     <div className="max-w-7xl mx-auto px-4">
-      {/* Links Section */}
       <div className="flex flex-col md:flex-row justify-between gap-16">
-        {/* Learn More */}
         <div className="md:w-1/4">
           <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
             Learn More
@@ -56,7 +50,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Us */}
         <div>
           <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
             Contact Us
@@ -70,16 +63,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="border-t border-gray-600 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Left: Learn More Footer Row */}
         <div className="flex flex-wrap gap-4 text-xs text-gray-500">
           <span className="hover:text-white cursor-pointer">Terms of Service</span>
           <span className="hover:text-white cursor-pointer">Privacy Policy</span>
           <span className="hover:text-white cursor-pointer">Do Not Sell My Personal Information</span>
         </div>
 
-        {/* Right: Socials */}
         {/* <div className="flex gap-4">
           <a href="https://x.com/battlefy"><FaTwitter className="h-5 w-5" /></a>
           <a href="https://www.facebook.com/Battlefy/"><FaFacebook className="h-5 w-5" /></a>
@@ -89,15 +79,10 @@ export default function Footer() {
     </div>
   </div>
 
-  {/* Copyright */}
   <div className="bg-[#1c1c1c] text-gray-300 text-center text-md py-4">
     <p>©2025 Battlefy, Inc.</p>
   </div>
 </div>
-
-      
-
-      {/* Copyright */}
       
     </footer>
   );
