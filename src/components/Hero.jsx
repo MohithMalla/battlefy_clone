@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState } from "react";
 import {
   Home,
@@ -15,67 +14,17 @@ import CTA from "./CTA.jsx";
 import Footer from "./Footer.jsx";
 import FAQ from "./FAQ.jsx";
 
-// Dummy events
-const events = [
-  {
-    image:
-      "https://cdn.battlefy.com/helix/images/campaigns/64c4730292a5060fb951de32/uploads/1716227966230.png",
-    title: "Splatoon 3 North American League Show",
-    date: "Ongoing",
-  },
-  {
-    image:
-      "https://cdn.battlefy.com/helix/images/campaigns/64c4730292a5060fb951de32/uploads/1716227966230.png",
-    title: "Another Event Title",
-    date: "Starts Oct 10",
-  },
-  {
-    image:
-      "https://cdn.battlefy.com/helix/images/campaigns/64c4730292a5060fb951de32/uploads/1716227966230.png",
-    title: "Third Event",
-    date: "Sept 15 - Oct 15",
-  },
-  {
-    image:
-      "https://cdn.battlefy.com/helix/images/campaigns/64c4730292a5060fb951de32/uploads/1716227966230.png",
-    title: "Fourth Event",
-    date: "Coming Soon",
-  },
-];
-
-// Reusable Event Card
-const EventCard = ({ event }) => (
-  <div className="min-w-[300px] bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg flex flex-col">
-    <img
-      src={event.image}
-      alt={event.title}
-      className="w-full h-40 object-cover"
-    />
-    <div className="p-4 flex flex-col justify-between flex-grow">
-      <div>
-        <h3 className="text-lg font-bold">{event.title}</h3>
-        <p className="text-gray-400 mt-1">{event.date}</p>
-      </div>
-      <button className="bg-red-600 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-red-700 transition-colors">
-        Play
-      </button>
-    </div>
-  </div>
-);
-
 export default function App() {
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState("English");
 
   return (
     <div className="flex h-screen bg-[#1C1C1C] text-white">
-      {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-full w-64 bg-[#0c0f16] flex flex-col justify-between transform transition-transform duration-300 z-40
         ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
       >
         <div>
-          {/* Logo */}
           <div className="p-6 flex items-center gap-2">
             <img
               src="https://a.storyblok.com/f/150896/2160x2160/d1066e1597/bfy_logo_3d.png/m/700x0/filters:format(png)"
@@ -87,8 +36,6 @@ export default function App() {
               <span className="text-red-500">FY</span>
             </span>
           </div>
-
-          {/* Nav */}
           <nav className="px-4 space-y-2">
             <a
               href="#"
@@ -144,8 +91,6 @@ export default function App() {
             </a>
           </nav>
         </div>
-
-        {/* Bottom Options */}
         <div className="p-4 space-y-3">
           <select
             value={language}
@@ -166,18 +111,13 @@ export default function App() {
           </button>
         </div>
       </aside>
-
-      {/* Overlay for small screens */}
       {open && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
-
-      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        {/* Top bar with menu button */}
         <header className="lg:hidden flex items-center bg-[#1C1C1C] p-4">
           <button
             onClick={() => setOpen(true)}
@@ -189,7 +129,6 @@ export default function App() {
         </header>
 
         <main className="flex-1 overflow-y-auto lg:ml-64">
-          {/* Hero Section */}
           <section
             className="relative h-[60vh] flex flex-col items-center justify-center text-center px-6"
             style={{
@@ -215,7 +154,6 @@ export default function App() {
             </div>
           </section>
 
-          {/* Select Your Game Section */}
           {/* <div className="grid grid-cols-1 md:grid-cols-3 w-full text-start text-white font-medium sticky top-0 z-50">
   <div className="bg-purple-600 py-5 px-5 border border-gray-700">
     Select your game
@@ -232,7 +170,6 @@ export default function App() {
           <FAQ />
 
 
-          {/* Game Selector Box */}
           <div className="bg-[#1a1a1a] border-4 border-red-500 rounded-lg mt-8 p-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center mx-4 md:mx-24">
             <div className="col-span-1 text-left">
               <h2 className="text-2xl font-semibold mb-2">
@@ -254,8 +191,6 @@ export default function App() {
               />
             </div>
           </div>
-
-          {/* Tournament Cards Slider */}
           <Features />
           <CTA />
           <Footer />
