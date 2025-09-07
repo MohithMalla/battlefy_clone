@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
+
 
 export default function Footer() {
   const partners = [
@@ -32,64 +34,71 @@ export default function Footer() {
       </div>
 
       {/* Footer Links Section */}
-      <div className="bg-[#252329] py-10 text-sm text-gray-400">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:justify-between gap-12 md:gap-16">
-          {/* Left Column */}
-          <div className="md:w-1/3">
-            <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
-              Learn More
-            </h3>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">About</li>
-              <li className="hover:text-white cursor-pointer">Services</li>
-              <li className="hover:text-white cursor-pointer">The Team</li>
-              <li className="hover:text-white cursor-pointer">Advisors & Investors</li>
-              <li className="hover:text-white cursor-pointer">Jobs</li>
-            </ul>
-          </div>
+      <div className="bg-gradient-to-b from-[#73252C] via-[#321E21] to-[#1c1c1c] text-white">
+  {/* Partner Logos (Optional, keep or remove as needed) */}
 
-          {/* Right Column */}
-          <div className="md:w-1/3">
-            <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
-              Contact Us
-            </h3>
-            <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Business Inquiries</li>
-              <li className="hover:text-white cursor-pointer">Organizer and Player Support</li>
-              <li className="hover:text-white cursor-pointer">Help Center</li>
-              <li className="hover:text-white cursor-pointer">Media Kit</li>
-            </ul>
-          </div>
+  {/* Main Footer Section */}
+  <div className="bg-[#252329] py-10 text-sm text-gray-400">
+    <div className="max-w-7xl mx-auto px-4">
+      {/* Links Section */}
+      <div className="flex flex-col md:flex-row justify-between gap-16">
+        {/* Learn More */}
+        <div className="md:w-1/4">
+          <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
+            Learn More
+          </h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white">About</li>
+            <li className="hover:text-white">Services</li>
+            <li className="hover:text-white">The Team</li>
+            <li className="hover:text-white">Advisors & Investors</li>
+            <li className="hover:text-white">Jobs</li>
+          </ul>
         </div>
 
-        {/* Bottom Links & Socials */}
-        <div className="max-w-7xl mx-auto mt-8 px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Legal Links */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 text-xs text-gray-500 text-center">
-            <span className="hover:text-white cursor-pointer">Terms of Service</span>
-            <span className="hover:text-white cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-white cursor-pointer">Do Not Sell My Personal Information</span>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex gap-4">
-            <a href="#" aria-label="Twitter">
-              <img src="/icons/twitter.png" alt="Twitter" className="h-5 w-5" />
-            </a>
-            <a href="#" aria-label="Facebook">
-              <img src="/icons/facebook.png" alt="Facebook" className="h-5 w-5" />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <img src="/icons/youtube.png" alt="YouTube" className="h-5 w-5" />
-            </a>
-          </div>
+        {/* Contact Us */}
+        <div>
+          <h3 className="text-white font-semibold mb-3 border-b border-gray-700 w-max">
+            Contact Us
+          </h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white">Business Inquiries</li>
+            <li className="hover:text-white">Organizer and Player Support</li>
+            <li className="hover:text-white">Help Center</li>
+            <li className="hover:text-white">Media Kit</li>
+          </ul>
         </div>
       </div>
+
+      {/* Divider */}
+      <div className="border-t border-gray-600 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Left: Learn More Footer Row */}
+        <div className="flex flex-wrap gap-4 text-xs text-gray-500">
+          <span className="hover:text-white cursor-pointer">Terms of Service</span>
+          <span className="hover:text-white cursor-pointer">Privacy Policy</span>
+          <span className="hover:text-white cursor-pointer">Do Not Sell My Personal Information</span>
+        </div>
+
+        {/* Right: Socials */}
+        <div className="flex gap-4">
+          <a href="https://x.com/battlefy"><FaTwitter className="h-5 w-5" /></a>
+          <a href="https://www.facebook.com/Battlefy/"><FaFacebook className="h-5 w-5" /></a>
+          <a href="https://www.youtube.com/battlefy"><FaYoutube className="h-5 w-5" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Copyright */}
+  <div className="bg-[#1c1c1c] text-gray-300 text-center text-md py-4">
+    <p>©2025 Battlefy, Inc.</p>
+  </div>
+</div>
+
+      
 
       {/* Copyright */}
-      <div className="bg-[#1c1c1c] text-gray-300 text-center py-4 text-sm sm:text-base">
-        <p>©2025 Battlefy, Inc.</p>
-      </div>
+      
     </footer>
   );
 }
