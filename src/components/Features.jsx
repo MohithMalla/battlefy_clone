@@ -36,8 +36,6 @@ const events = [
 
 export default function Features() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-slide every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % events.length);
@@ -51,9 +49,7 @@ export default function Features() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-10 py-6 mx-auto max-w-6xl">
-      {/* Main Content Row */}
       <div className="flex flex-col lg:flex-row bg-black rounded-lg overflow-hidden shadow-lg">
-        {/* Left: Image (66%) */}
         <div className="w-full lg:w-2/3">
           <img
             src={events[activeIndex].image}
@@ -61,8 +57,6 @@ export default function Features() {
             className="w-full h-56 sm:h-72 md:h-96 lg:h-full object-cover"
           />
         </div>
-
-        {/* Right: Content (33%) */}
         <div className="w-full lg:w-1/3 p-4 sm:p-6 bg-[#121212] flex flex-col justify-between">
           <div>
             <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-3">
@@ -78,8 +72,6 @@ export default function Features() {
           </button>
         </div>
       </div>
-
-      {/* Thumbnail Carousel */}
       <div className="flex justify-start lg:justify-center gap-3 sm:gap-4 mt-6 overflow-x-auto scrollbar-hide">
         {events.map((event, idx) => (
           <img
