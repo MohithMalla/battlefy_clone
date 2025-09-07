@@ -70,11 +70,11 @@ export default function Footer() {
           <span className="hover:text-white cursor-pointer">Do Not Sell My Personal Information</span>
         </div>
 
-        {/* <div className="flex gap-4">
+        <div className="flex gap-4">
           <a href="https://x.com/battlefy"><FaTwitter className="h-5 w-5" /></a>
           <a href="https://www.facebook.com/Battlefy/"><FaFacebook className="h-5 w-5" /></a>
           <a href="https://www.youtube.com/battlefy"><FaYoutube className="h-5 w-5" /></a>
-        </div> */}
+        </div>
       </div>
     </div>
   </div>

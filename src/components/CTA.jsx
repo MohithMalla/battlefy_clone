@@ -2,32 +2,23 @@ export default function EsportsSection() {
   return (
     <section className="bg-gradient-to-b from-[#1c1c1c] via-[#321E21] to-[#73252C] text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight uppercase tracking-tight">
           Looking to unlock the full potential
           <br className="hidden sm:block" />
           of your esports events?
         </h1>
-
-        {/* Highlighted Sub-heading */}
         <h2 className="mt-4 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold uppercase">
           <span className="inline-block bg-black text-white px-3 py-1">
             That's where we come in
           </span>
         </h2>
-
-        {/* Supporting paragraph */}
         <p className="mt-6 text-base sm:text-lg text-gray-300 max-w-3xl">
           We create engaging experiences that gamers want to be a part of, while tracking your
           program’s impact and success with those you want to connect with.
         </p>
-
-        {/* CTA Button */}
         <button className="mt-8 px-6 py-3 bg-gray-300 text-black font-semibold rounded-full hover:bg-white transition">
           LET'S WORK TOGETHER
         </button>
-
-        {/* Featured Programs */}
         <div className="mt-16">
           <h3 className="text-xl sm:text-2xl font-bold uppercase mb-10 text-center">
             Featured Programs

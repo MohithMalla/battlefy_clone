@@ -21,7 +21,6 @@ export default function GameSelector() {
 
   return (
     <div className="relative bg-[#121921]">
-      {/* Top Bar */}
       <div className="grid grid-cols-1 md:grid-cols-3 w-full text-start text-white font-medium sticky top-0 z-50">
         <button
           onClick={() => setShowPopup(true)}
@@ -38,11 +37,8 @@ export default function GameSelector() {
           Any Platform
         </div>
       </div>
-
-      {/* Popup */}
       {showPopup && (
         <div className="absolute top-full left-0 w-full bg-[#121921] z-50 shadow-lg border-t border-gray-700 animate-fadeIn">
-          {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 text-white">
             <span className="font-medium">Select your game</span>
             <button
@@ -52,8 +48,6 @@ export default function GameSelector() {
               Done
             </button>
           </div>
-
-          {/* Search Bar */}
           <div className="p-4">
             <input
               type="text"
@@ -61,8 +55,6 @@ export default function GameSelector() {
               className="w-full bg-[#1c1c1c] text-white px-4 py-2 rounded border border-gray-600 focus:outline-none focus:border-purple-500"
             />
           </div>
-
-          {/* Games Horizontal Scroll */}
           <div className="p-4 overflow-x-auto scrollbar-hide">
             <div className="flex gap-4">
               {games.map((game, index) => (
