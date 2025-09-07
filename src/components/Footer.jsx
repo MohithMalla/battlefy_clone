@@ -80,11 +80,11 @@ export default function Footer() {
         </div>
 
         {/* Right: Socials */}
-        <div className="flex gap-4">
+        {/* <div className="flex gap-4">
           <a href="https://x.com/battlefy"><FaTwitter className="h-5 w-5" /></a>
           <a href="https://www.facebook.com/Battlefy/"><FaFacebook className="h-5 w-5" /></a>
           <a href="https://www.youtube.com/battlefy"><FaYoutube className="h-5 w-5" /></a>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
