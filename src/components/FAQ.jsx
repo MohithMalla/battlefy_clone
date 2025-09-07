@@ -1,238 +1,87 @@
-// import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
-// export default function ComparisonTable() {
-//   const sectionRef = useRef(null);
-//   const [visible, setVisible] = useState(false);
+const games = [
+  { name: "Splatoon 3", img: "https://cdn.battlefy.com/helix/images/games/splatoon-3/uploads/box-1660154709642.jpeg" },
+  { name: "League of Legends", img: "https://cdn.battlefy.com/helix/images/games/league-of-legends/uploads/box-1591426446904.jpg" },
+  { name: "VALORANT", img: "https://cdn.battlefy.com/helix/images/games/valorant/box.jpg" },
+  { name: "Mobile Legends", img: "https://cdn.battlefy.com/helix/images/games/mobile-legends-bang-bang/uploads/box-1591431736943.jpg" },
+  { name: "Apex Legends", img: "https://d33jl3tgfli0fm.cloudfront.net/helix/images/games/apex-legends/box.jpg" },
+  { name: "Marvel Rivals", img: "https://cdn.battlefy.com/helix/images/games/marvel-rivals/uploads/box-1733473615403.png" },
+  { name: "Overwatch", img: "https://cdn.battlefy.com/helix/images/games/overwatch/uploads/box-1668629049485.png" },
+  { name: "Hearthstone", img: "https://cdn.battlefy.com/helix/images/games/shadowverse-worlds-beyond/uploads/box-1753641810948.jpg" },
+  { name: "Rocket League", img: "https://cdn.battlefy.com/helix/images/games/hearthstone/uploads/box-1591425890103.jpg" },
+  { name: "FC 25", img: "https://d33jl3tgfli0fm.cloudfront.net/helix/images/games/rocket-league/box.jpg" },
+  { name: "Free Fire", img: "https://cdn.battlefy.com/helix/images/games/ea-sports-fc-25/uploads/box-1727113205315.png" },
+  { name: "Clash Royale", img: "https://cdn.battlefy.com/helix/images/games/super-smash-bros-ultimate/uploads/box-1591862622326.jpg" },
+];
 
-//   const features = [
-//     {
-//       label: "Custom model image generation",
-//       sub: "Create images with models trained on your products",
-//       flair: true,
-//       pebbely: false,
-//       botika: true,
-//       claid: true,
-//     },
-//     {
-//       label: "On model photography",
-//       sub: "Generate images with products on models",
-//       flair: true,
-//       pebbely: false,
-//       botika: true,
-//       claid: true,
-//     },
-//     {
-//       label: "Instant image generation",
-//       sub: "Quickly generate product images without training",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "Background image regeneration",
-//       sub: "Recreate and modify image backgrounds",
-//       flair: true,
-//       pebbely: true,
-//       botika: false,
-//       claid: true,
-//     },
-//     {
-//       label: "Video generation",
-//       sub: "Create product videos with AI",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: true,
-//     },
-//     {
-//       label: "Ad generation",
-//       sub: "Generate ad creatives with AI",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "AI editing tools",
-//       sub: "Edit and refine images with AI assistance",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "Brand asset management",
-//       sub: "Manage your brand assets in one place",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "Human builder",
-//       sub: "Create and customize human models",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "Custom background and assets",
-//       sub: "Add your own backgrounds and props",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "Team collaboration",
-//       sub: "Work together with your team in real-time",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//     {
-//       label: "API access",
-//       sub: "Access via API for integration",
-//       flair: true,
-//       pebbely: false,
-//       botika: false,
-//       claid: false,
-//     },
-//   ];
+export default function GameSelector() {
+  const [showPopup, setShowPopup] = useState(false);
 
-//   const FlairTick = () => (
-//     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-lime-900 flex items-center justify-center">
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         fill="none"
-//         stroke="lime"
-//         strokeWidth="3"
-//         className="w-3 h-3 sm:w-4 sm:h-4"
-//         viewBox="0 0 24 24"
-//       >
-//         <path d="M5 13l4 4L19 7" />
-//       </svg>
-//     </div>
-//   );
+  return (
+    <div className="relative bg-[#121921]">
+      {/* Top Bar */}
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full text-start text-white font-medium sticky top-0 z-50">
+        <button
+          onClick={() => setShowPopup(true)}
+          className="flex items-center justify-between bg-purple-600 hover:bg-purple-700 py-5 px-5 border border-gray-700 w-full"
+        >
+          Select your game
+          <ChevronDown className="ml-2 w-4 h-4" />
+        </button>
 
-//   const WhiteTick = () => (
-//     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-zinc-800 flex items-center justify-center">
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         fill="none"
-//         stroke="white"
-//         strokeWidth="3"
-//         className="w-3 h-3 sm:w-4 sm:h-4"
-//         viewBox="0 0 24 24"
-//       >
-//         <path d="M5 13l4 4L19 7" />
-//       </svg>
-//     </div>
-//   );
+        <div className="hidden md:block bg-[#1c222B] py-5 px-5 text-[#808080] border border-gray-700">
+          Global
+        </div>
+        <div className="hidden md:block bg-[#1c222B] py-5 px-5 text-[#808080] border border-gray-700">
+          Any Platform
+        </div>
+      </div>
 
-//   const WhiteCross = () => (
-//     <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-zinc-800 flex items-center justify-center">
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         fill="none"
-//         stroke="grey"
-//         strokeWidth="3"
-//         className="w-3 h-3 sm:w-4 sm:h-4"
-//         viewBox="0 0 24 24"
-//       >
-//         <path d="M6 6l12 12M6 18L18 6" />
-//       </svg>
-//     </div>
-//   );
+      {/* Popup */}
+      {showPopup && (
+        <div className="absolute top-full left-0 w-full bg-[#121921] z-50 shadow-lg border-t border-gray-700 animate-fadeIn">
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-3 text-white">
+            <span className="font-medium">Select your game</span>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="font-bold hover:text-gray-200"
+            >
+              Done
+            </button>
+          </div>
 
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       (entries) => {
-//         entries.forEach((entry) => {
-//           if (entry.isIntersecting) {
-//             setVisible(true);
-//             observer.disconnect();
-//           }
-//         });
-//       },
-//       { threshold: 0.2 }
-//     );
+          {/* Search Bar */}
+          <div className="p-4">
+            <input
+              type="text"
+              placeholder="Search for games..."
+              className="w-full bg-[#1c1c1c] text-white px-4 py-2 rounded border border-gray-600 focus:outline-none focus:border-purple-500"
+            />
+          </div>
 
-//     if (sectionRef.current) observer.observe(sectionRef.current);
-//     return () => observer.disconnect();
-//   }, []);
-
-//   return (
-//     <div className="bg-[#181414] text-white py-12 sm:py-20 px-3 sm:px-6 md:px-12 lg:px-24">
-//       <div
-//         ref={sectionRef}
-//         className="border border-white/20 rounded-2xl shadow-xl p-4 sm:p-8 md:p-12 bg-[#161616]"
-//       >
-//         <h2 className="text-2xl sm:text-4xl md:text-5xl font-light text-center mb-3 sm:mb-4">
-//           How does Flair compare?
-//         </h2>
-//         <p className="text-white/50 text-center mb-6 sm:mb-12 text-base sm:text-xl md:text-2xl font-light">
-//           See how Flair stacks up against other AI product photography platforms
-//         </p>
-
-//         <div className="overflow-x-auto">
-//           <table className="w-full text-left border-collapse text-sm sm:text-base md:text-lg">
-//             <thead>
-//               <tr className="text-left text-gray-300 border-b border-gray-700">
-//                 <th className="py-2 sm:py-3 px-2 sm:px-4">Features</th>
-//                 <th className="py-2 sm:py-3 ">Flair</th>
-//                 <th className="py-2 sm:py-3 ">Pebbelly</th>
-//                 <th className="py-2 sm:py-3 ">Botika</th>
-//                 <th className="py-2 sm:py-3 ">Claid</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {features.map((feature, idx) => (
-//                 <tr
-//                   key={idx}
-//                   className={`border-b border-white/5 transition-all duration-700
-//                     ${
-//                       visible
-//                         ? "opacity-100 translate-x-0"
-//                         : "opacity-0 -translate-x-10"
-//                     }
-//                   `}
-//                   style={{
-//                     transitionDelay: visible ? `${idx * 120}ms` : "0ms",
-//                   }}
-//                 >
-//                   <td className="py-4 sm:py-5 px-2 sm:px-4 w-[50%] sm:w-[40%]">
-//                     <div className="flex flex-col">
-//                       <span className="text-white font-medium text-sm sm:text-base md:text-lg">
-//                         {feature.label}
-//                       </span>
-//                       <span className="text-gray-500 text-xs sm:text-sm md:text-base">
-//                         {feature.sub}
-//                       </span>
-//                     </div>
-//                   </td>
-
-//                   <td className="py-4 text-center w-[15%]">
-//                     {feature.flair ? <FlairTick /> : <WhiteCross />}
-//                   </td>
-//                   <td className="py-4 text-center w-[15%]">
-//                     {feature.pebbely ? <WhiteTick /> : <WhiteCross />}
-//                   </td>
-//                   <td className="py-4 text-center w-[15%]">
-//                     {feature.botika ? <WhiteTick /> : <WhiteCross />}
-//                   </td>
-//                   <td className="py-4 text-center w-[15%]">
-//                     {feature.claid ? <WhiteTick /> : <WhiteCross />}
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+          {/* Games Horizontal Scroll */}
+          <div className="p-4 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-4">
+              {games.map((game, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-24 text-center cursor-pointer hover:scale-105 transition-transform"
+                >
+                  <img
+                    src={game.img}
+                    alt={game.name}
+                    className="w-20 h-20 mx-auto rounded object-cover"
+                  />
+                  <p className="text-sm text-gray-300 mt-2">{game.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

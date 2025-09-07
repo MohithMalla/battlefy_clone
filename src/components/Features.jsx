@@ -1,137 +1,100 @@
-// import { useState, useRef, useEffect } from "react";
-// import { ChevronLeft, ChevronRight } from "lucide-react";
-// import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Calendar } from "lucide-react";
 
-// const data = {
-//   "On Model Photography": [
-//     { type: "image", src: "https://i.pinimg.com/originals/a6/96/cb/a696cb3bfef2868ae0ca7588462260a4.jpg"}, 
-//     { type: "image", src: "https://www.photographer-fashion.co.uk/wp-content/uploads/sites/5/2020/11/1DSC_6428bweb.jpg" },
-//     { type: "image", src:   "https://i.pinimg.com/originals/06/06/b5/0606b51c97493debe8a1a680ca4db11f.jpg" },
-//     { type: "image", src:   "https://i.pinimg.com/originals/53/0e/ed/530eed19013230acf57e64573336fa10.jpg" },
-//     { type: "image", src: "https://i.pinimg.com/originals/a6/96/cb/a696cb3bfef2868ae0ca7588462260a4.jpg"}, 
-//     { type: "image", src: "https://www.photographer-fashion.co.uk/wp-content/uploads/sites/5/2020/11/1DSC_6428bweb.jpg" },
-//     { type: "image", src:   "https://i.pinimg.com/originals/06/06/b5/0606b51c97493debe8a1a680ca4db11f.jpg" },
-//     { type: "image", src:   "https://i.pinimg.com/originals/53/0e/ed/530eed19013230acf57e64573336fa10.jpg" },
+const events = [
+  {
+    title: "Splatoon 3 North American League Sunday Scrim",
+    date: "Ongoing",
+    image:
+      "https://cdn.battlefy.com/helix/images/campaigns/68b6ad091992a300172832bc/uploads/1756802353478.png",
+  },
+  {
+    title: "Apex Legends Global Series",
+    date: "$ 5,00,000 Prize Pool",
+    image:
+      "https://cdn.battlefy.com/helix/images/campaigns/5dfa5ef5afb48e6af74cc814/uploads/1739555886679.png",
+  },
+  {
+    title: "Telus Arena Community",
+    date: "Sept 15 - Oct 15",
+    image:
+      "https://cdn.battlefy.com/helix/images/campaigns/64c4730292a5060fb951de32/uploads/1716227966230.png",
+  },
+  {
+    title: "Splatoon 3 North American League Show",
+    date: "Ongoing",
+    image:
+      "https://cdn.battlefy.com/helix/images/campaigns/68b6ad011992a300172832ac/uploads/1756802349328.png",
+  },
+  {
+    title: "Splatoon 3 North American League",
+    date: "Ongoing",
+    image:
+      "https://cdn.battlefy.com/helix/images/campaigns/68b6a607194f580017e298e8/uploads/1756800527867.png",
+  },
+];
 
-//   ],
-//   "Product Videos": [
-//     { type: "video", src: "/video1.mp4" },
-//     { type: "video", src: "/video2.mp4" },
-//     { type: "video", src: "/video3.mp4" },
-//   ],
-//   "Marketing & Ads": [
-//     { type: "image", src: "/img5.jpg" },
-//     { type: "image", src: "/img6.jpg" },
-//     { type: "image", src: "/img7.jpg" },
-//   ],
-//   "Product Photography": [
-//     { type: "image", src: "/img8.jpg" },
-//     { type: "image", src: "/img9.jpg" },
-//     { type: "image", src: "/img10.jpg" },
-//   ],
-// };
+export default function Features() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-// const tabs = Object.keys(data);
+  // Auto-slide every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % events.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
-// export default function FlairSlider() {
-//   const [activeTab, setActiveTab] = useState(tabs[0]);
-//   const scrollRef = useRef(null);
+  const handleThumbnailClick = (index) => {
+    setActiveIndex(index);
+  };
 
-//   useEffect(() => {
-//     data[activeTab].forEach(item => {
-//       if (item.type === "video") {
-//         const video = document.createElement("video");
-//         video.src = item.src;
-//         video.preload = "auto";
-//         video.muted = true;
-//       }
-//     });
-//     if (scrollRef.current) scrollRef.current.scrollLeft = 0;
-//   }, [activeTab]);
+  return (
+    <div className="px-4 sm:px-6 lg:px-10 py-6 mx-auto max-w-6xl">
+      {/* Main Content Row */}
+      <div className="flex flex-col lg:flex-row bg-black rounded-lg overflow-hidden shadow-lg">
+        {/* Left: Image (66%) */}
+        <div className="w-full lg:w-2/3">
+          <img
+            src={events[activeIndex].image}
+            alt={events[activeIndex].title}
+            className="w-full h-56 sm:h-72 md:h-96 lg:h-full object-cover"
+          />
+        </div>
 
-//   const scroll = (offset) => {
-//     if (scrollRef.current) {
-//       scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
-//     }
-//   };
+        {/* Right: Content (33%) */}
+        <div className="w-full lg:w-1/3 p-4 sm:p-6 bg-[#121212] flex flex-col justify-between">
+          <div>
+            <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-3">
+              {events[activeIndex].title}
+            </h2>
+            <div className="flex items-center text-gray-400 mb-6 text-sm sm:text-base">
+              <Calendar size={18} className="mr-2" />
+              {events[activeIndex].date}
+            </div>
+          </div>
+          <button className="bg-[#F44336] hover:bg-[#d32f2f] text-white font-semibold py-2 px-4 rounded text-sm sm:text-base transition-all">
+            Play
+          </button>
+        </div>
+      </div>
 
-//   return (
-//     <section className="bg-[#181414] text-white py-20">
-//   <div className="max-w-7xl mx-auto px-6">
-//   <div className="text-left flex flex-col items-center">
-//     <div className="w-full max-w-4xl">
-//       <h4 className="text-lime-400 text-sm md:text-base font-light mb-4">
-//         Create content that matches your brand rules and aesthetic.
-//       </h4>
-//       <h1 className="text-4xl md:text-7xl font-light leading-tight">
-//         Generate on brand content for all your business needs.
-//       </h1>
-//       <div className="flex flex-wrap gap-3 mt-8">
-//         {tabs.map(tab => (
-//           <button
-//             key={tab}
-//             onClick={() => setActiveTab(tab)}
-//             className={`px-4 py-2 rounded-full border transition 
-//               ${activeTab === tab 
-//                 ? "bg-lime-400 text-black border-lime-400" 
-//                 : "border-white/20 hover:border-white/40 text-white/80"
-//               }`}
-//           >
-//             {tab}
-//           </button>
-//         ))}
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-
-//   <div className="relative w-full mt-12">
-//     <button 
-//       onClick={() => scroll(-400)}
-//       className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full z-10 shadow-lg"
-//     >
-//       <ChevronLeft className="w-6 h-6" />
-//     </button>
-//     <div 
-//   ref={scrollRef}
-//   className="flex gap-6 overflow-hidden scroll-smooth no-scrollbar px-6"
-// >
-//   {data[activeTab].map((item, i) => (
-//     <motion.div
-//       key={i}
-//       initial={{ opacity: 0, y: 20 }}
-//       whileInView={{ opacity: 1, y: 0 }}
-//       viewport={{ once: true }}
-//       transition={{ duration: 0.5, delay: i * 0.1 }}
-//       className="min-w-[50%] md:min-w-[30%] lg:min-w-[20%] rounded-2xl overflow-hidden flex-shrink-0 shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-white/10 bg-white/5 hover:border-white/60  "
-//     >
-//       {item.type === "video" ? (
-//         <video 
-//           src={item.src} 
-//           autoPlay 
-//           loop 
-//           muted 
-//           playsInline 
-//           className="w-80 h-100 object-cover"
-//         />
-//       ) : (
-//         <img 
-//           src={item.src} 
-//           alt={`slide-${i}`} 
-//           className="w-80 h-100 object-cover " 
-//         />
-//       )}
-//     </motion.div>
-//   ))}
-// </div>
-//     <button 
-//       onClick={() => scroll(400)}
-//       className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full z-10 shadow-lg"
-//     >
-//       <ChevronRight className="w-6 h-6" />
-//     </button>
-//   </div>
-// </section>
-//   );
-// }
+      {/* Thumbnail Carousel */}
+      <div className="flex justify-start lg:justify-center gap-3 sm:gap-4 mt-6 overflow-x-auto scrollbar-hide">
+        {events.map((event, idx) => (
+          <img
+            key={idx}
+            src={event.image}
+            alt={`Thumbnail ${idx + 1}`}
+            onClick={() => handleThumbnailClick(idx)}
+            className={`w-24 sm:w-28 h-16 sm:h-20 object-cover rounded-md border-2 cursor-pointer transition-all duration-300 ${
+              idx === activeIndex
+                ? "border-red-500 grayscale-0"
+                : "border-gray-600 grayscale"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
