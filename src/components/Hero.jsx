@@ -1,88 +1,132 @@
-import { useState, useEffect } from "react";
+import Footer from './Footer'
+import { useState } from "react";
+import {
+  Menu,
+  X,
+  Home,
+  HelpCircle,
+  Search,
+} from "lucide-react";
 
 export default function Hero() {
-  const words = [
-    "advertising",
-    "photoshoots",
-    "videos",
-    "content",
-    "marketing",
-    "photos",
-  ];
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <>
-      <section className="bg-[#181414] text-white flex flex-col items-center justify-center pt-24 sm:pt-32 px-4 text-center">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-zinc-300">
-          The AI design tool for
-          <br />
-          <span className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 py-6 sm:py-8">
-            <span className="text-lime-400">product</span>
-
-            <span className="relative w-[190px] sm:w-[280px] md:w-[380px] lg:w-[500px] h-[90px] sm:h-[70px] md:h-[90px] lg:h-[110px] overflow-hidden">
-              {words.map((word, i) => (
-                <span
-                  key={i}
-                  className={`absolute top-0 left-0 transition-all duration-700 ease-in-out
-                  ${i === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"}
-                  text-lime-400 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[50px] sm:leading-[70px] md:leading-[90px] lg:leading-[100px]
-                `}
-                >
-                  {word}
-                </span>
-              ))}
-            </span>
-          </span>
-        </h1>
-
-        <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-white/50 max-w-xl sm:max-w-2xl">
-          Build stunning AI product content with your team in real-time.
-        </p>
-
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <button className="w-full sm:w-auto bg-lime-400 text-zinc-900 font-bold opacity-80 px-6 py-3 rounded-lg hover:opacity-100 shadow-[0_0_20px_4px_rgba(163,230,53,0.3)] transition duration-300">
-            Get Started – It’s Free
-          </button>
-          <button className="w-full sm:w-auto bg-white/10 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/20 transition">
-            Book a Demo
+    <div className="flex h-screen bg-gray-900 text-white">
+      {/* Sidebar */}
+      <aside
+        className={`fixed md:static top-0 left-0 h-full w-64 bg-gray-950 z-50 transform ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 transition-transform duration-300`}
+      >
+        <div className="flex items-center justify-between p-6 md:justify-start">
+          <div className="text-2xl font-bold text-red-500">BATTLEFY</div>
+          <button
+            className="md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <X size={24} />
           </button>
         </div>
-      </section>
+        <nav className="space-y-4 px-6">
+          <a href="#" className="flex items-center gap-2 hover:text-red-400">
+            <Home size={18} /> Home
+          </a>
+          <a href="#" className="hover:text-red-400">Armoury</a>
+          <a href="#" className="hover:text-red-400">Organize Tournaments</a>
+          <a href="#" className="hover:text-red-400">Apex Legends Global Series</a>
+          <a href="#" className="hover:text-red-400">Splatoon 3 North American League</a>
+          <a href="#" className="flex items-center gap-2 hover:text-red-400">
+            <HelpCircle size={18} /> Help Center
+          </a>
+        </nav>
 
-      <section className="bg-[#181414] w-full relative overflow-hidden">
-        <img
-          alt="Laptop Hero"
-          src="https://flair.ai/cdn-cgi/imagedelivery/i1XPW6iC_chU01_6tBPo8Q/1714a744-46b5-4009-1b22-d39558452000/public"
-          className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[850px] object-cover mt-[-20px] sm:mt-[-30px]"
-        />
-
-        <div className="absolute inset-0 flex justify-center items-center">
-          <div className="relative w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[55vw] aspect-video">
-  <video
-    className="absolute top-[0%] left-[58%] -translate-x-1/2 w-[85%] sm:w-[80%] md:w-[75%] lg:w-full h-full rounded-lg shadow-lg"
-    autoPlay
-    loop
-    muted
-    playsInline
-  >
-    <source
-      src="https://video.flair.ai/flair-hero.mp4"
-      type="video/mp4"
-    />
-    Your browser does not support the video tag.
-  </video>
-</div>
-
+        <div className="p-6 space-y-3 mt-8">
+          <select className="w-full bg-gray-800 text-white rounded p-2 text-sm">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>French</option>
+          </select>
+          <button className="w-full bg-red-600 rounded py-2 hover:bg-red-500">
+            Login
+          </button>
+          <button className="w-full border border-red-500 rounded py-2 hover:bg-red-500">
+            Sign Up
+          </button>
         </div>
-      </section>
-    </>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 overflow-y-auto">
+        {/* Mobile header */}
+        <div className="md:hidden flex items-center justify-between px-6 py-4 bg-gray-950">
+          <div className="text-xl font-bold text-red-500">BATTLEFY</div>
+          <button onClick={() => setSidebarOpen(true)}>
+            <Menu size={24} />
+          </button>
+        </div>
+
+        {/* Hero */}
+        <section className="relative h-[50vh] sm:h-[60vh] flex flex-col items-center justify-center text-center px-6 bg-gradient-to-r from-gray-800 to-gray-900">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+            CREATE, COMPETE,{" "}
+            <span className="text-red-500">CONQUER</span>
+          </h1>
+          <p className="mt-6 text-gray-300 max-w-2xl text-sm sm:text-base md:text-lg">
+            WITH OVER A MILLION HOURS OF GAMEPLAY EVERY WEEK, BATTLEFY IS THE ESPORTS
+            PLATFORM OF CHOICE FOR THE WORLD’S TOP PUBLISHERS, GAMING COMMUNITIES,
+            CREATORS, BRANDS AND YOU.
+          </p>
+        </section>
+
+        {/* Game selector */}
+        <section className="bg-gray-800 py-4 px-4">
+          <div className="flex flex-wrap gap-2 justify-center md:justify-start max-w-4xl mx-auto">
+            <button className="bg-purple-600 px-4 py-2 rounded">Select your game</button>
+            <button className="bg-gray-700 px-4 py-2 rounded">Done</button>
+            <button className="bg-gray-700 px-4 py-2 rounded">Global</button>
+            <button className="bg-gray-700 px-4 py-2 rounded">Any Platform</button>
+          </div>
+        </section>
+
+        {/* Search */}
+        <section className="bg-gray-900 px-6 py-6">
+          <div className="max-w-3xl mx-auto flex items-center bg-gray-800 rounded px-4 py-2">
+            <Search size={18} className="text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search for games"
+              className="ml-2 bg-transparent flex-1 outline-none text-white"
+            />
+          </div>
+        </section>
+
+        {/* Game cards */}
+        <section className="px-6 pb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              { name: "Splatoon", img: "https://upload.wikimedia.org/wikipedia/en/0/04/Splatoon_3_cover_art.jpg" },
+              { name: "League of Legends", img: "https://upload.wikimedia.org/wikipedia/en/7/77/League_of_Legends_logo.png" },
+              { name: "Valorant", img: "https://upload.wikimedia.org/wikipedia/en/f/fd/Valorant_cover_art.jpg" },
+              { name: "Apex Legends", img: "https://upload.wikimedia.org/wikipedia/en/d/db/Apex_legends_cover.jpg" },
+              { name: "Overwatch 2", img: "https://upload.wikimedia.org/wikipedia/en/5/5f/Overwatch_2_cover_art.jpg" },
+              { name: "Hearthstone", img: "https://upload.wikimedia.org/wikipedia/en/1/1d/Hearthstone_2016_logo.png" },
+            ].map((game, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform cursor-pointer"
+              >
+                <img
+                  src={game.img}
+                  alt={game.name}
+                  className="w-full h-28 sm:h-32 object-cover"
+                />
+                <div className="p-2 text-center text-sm">{game.name}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
